@@ -16,7 +16,7 @@ Feature: Calculator Feature
 		|number1|number2|result|
 		|1		|1		|1	   |
 		
-	Scenario Outline: Device two numbers
+	Scenario Outline: Divide two numbers
 		Given User opened Calculator app
 		When User divides <number1> and <number2>
 		Then User receives result equal to <result>
