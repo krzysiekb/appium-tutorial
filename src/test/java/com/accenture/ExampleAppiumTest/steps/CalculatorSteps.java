@@ -25,6 +25,13 @@ public class CalculatorSteps extends BaseStep {
 		mainScreen.setNumber(number2);
 	}
 	
+	@When("^User multiplies (.+) and (.+)$")
+	public void multiplyNumbers(double number1, double number2) {
+		mainScreen.setNumber(number1);
+		mainScreen.multiply();
+		mainScreen.setNumber(number2);
+	}
+	
 	@Then("^User receives result equal to (.+)$")
 	public void verifyResult(double resultToVerify) {
 		double result = mainScreen.execute();
