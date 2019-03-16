@@ -27,7 +27,7 @@ Feature: Calculator Feature
 	Scenario Outline: Divide number by 0
 		Given User opened Calculator app
 		When User divides <number1> and 0
-		Then User receives <error>
+		Then User receives error <error>
 		Examples:
 		|number1|error 			  |
 		|1		|Can't divide by 0|
