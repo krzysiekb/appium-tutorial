@@ -19,7 +19,7 @@ Feature: Calculator Feature
 	Scenario Outline: Divide two numbers
 		Given User opened Calculator app
 		When User divides <number1> and <number2>
-		Then User receives result equal to <result>
+		Then User receives result equal to <result> with <error>
 		Examples:
 		|number1|number2|result|error 			 |
 		|1		|1		|1	   |	 			 |
