@@ -55,16 +55,19 @@ public class MainScreen extends BaseScreen {
 		performOperation(divideLocator);
 	}
 	
-	public double execute() {
+	public void execute() {
 		device.getDriver()
 			.findElement(equalsLocator).click();
-		return getResult();
 	}
 
 	public double getResult() {
 		String resultString = 
 				device.getDriver().findElement(resultLocator).getText();
 		return Double.parseDouble(resultString);
+	}
+	
+	public String getError() {
+		return device.getDriver().findElement(resultLocator).getText();
 	}
 	
 	private By getNumberLocator(char c) {

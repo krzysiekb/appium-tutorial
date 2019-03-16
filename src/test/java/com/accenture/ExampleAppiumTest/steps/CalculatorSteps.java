@@ -32,9 +32,24 @@ public class CalculatorSteps extends BaseStep {
 		mainScreen.setNumber(number2);
 	}
 	
+	@When("^User divides (.+) and (.+)$")
+	public void divideNumbers(double number1, double number2) {
+		mainScreen.setNumber(number1);
+		mainScreen.divide();
+		mainScreen.setNumber(number2);
+	}
+	
 	@Then("^User receives result equal to (.+)$")
 	public void verifyResult(double resultToVerify) {
-		double result = mainScreen.execute();
+		mainScreen.execute();
+		double result = mainScreen.getResult();
 		assertTrue("Result is incorrect.", result == resultToVerify);
+	}
+	
+	@Then("^User receives error (.+)$")
+	public void verifyResultWithError(String errorToVerify) {
+		mainScreen.execute();
+		String error = mainScreen.getError();
+		assertTrue("Error is incorrect.", error.equals(errorToVerify));
 	}
 }
